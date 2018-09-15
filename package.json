@@ -1,9 +1,9 @@
 {
   "name": "vue-cli-plugin-pages",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "main": "index.js",
   "license": "MIT",
-  "author": "aircity <aircity@drrr.us>",  
+  "author": "aircity <aircity@drrr.us>",
   "devDependencies": {
     "globby": "^8.0.0",
     "jsonfile": "^5.0.0",
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/Aircity/vue-cli-plugin-pages.git"
   },
-  "homepage": "https://github.com/Aircity/vue-cli-plugin-pages#readme",  
+  "homepage": "https://github.com/Aircity/vue-cli-plugin-pages#readme",
   "description": "vue-cli 3 plugin to load multi-page",
   "keywords": [
     "vue",
