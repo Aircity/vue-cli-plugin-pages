@@ -1,15 +1,9 @@
 language: node_js
-node_js:
-  - "8"
-notifications:
-  email:
-    recipients:
-      - aircity@drrr.us
-    on_success: change
-    on_failure: always
-deploy:
-  provider: script
-  script: "cp .npmrc.template $HOME/.npmrc && npm publish"
-  skip_cleanup: true
-  on:
-    branch: master
+jobs:
+  include:
+    - stage: npm release
+      script: echo "Deploying to npm ..."
+      deploy:
+        provider: npm
+        api_key: $NPM_API_KEY
+        on: deploy-npm-release
