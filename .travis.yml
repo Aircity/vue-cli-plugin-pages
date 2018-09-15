@@ -9,5 +9,7 @@ jobs:
       script: echo "Deploying to npm ..."
       deploy:
         provider: npm
+        email: "aircity@drrr.us"
         api_key: $NPM_API_KEY
+        gem: vue-cli-plugin-pages
         on: deploy-npm-release
