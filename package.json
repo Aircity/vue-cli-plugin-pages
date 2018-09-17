@@ -17,7 +17,7 @@
     "url": "git+https://github.com/Aircity/vue-cli-plugin-pages.git"
   },
   "homepage": "https://github.com/Aircity/vue-cli-plugin-pages#readme",
-  "description": "vue-cli 3 plugin to load multi-page",
+  "description": "vue-cli 3 plugin to build multi-page application",
   "keywords": [
     "vue",
     "vue-cli",

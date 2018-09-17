@@ -1,6 +1,6 @@
 # vue-cli-plugin-pages
 
-This is a vue-cli 3.x plugin to load multi-page.
+This is a vue-cli 3.x plugin to build multi-page application.
 
 ## Getting started
 
