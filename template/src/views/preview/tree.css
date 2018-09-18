@@ -1,0 +1,89 @@
+ul#slide-menu li {
+  line-height: 44px;
+  vertical-align: middle;
+}
+
+ul#slide-menu a {
+  display: block;
+  color: #444;
+  padding: 0 15px;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+ul#slide-menu a:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+ul#slide-menu a>i {
+  line-height: inherit;
+  font-size: 18px;
+  display: block;
+  float: left;
+  text-align: center;
+  margin-right: 0.5rem;
+}
+
+ul#slide-menu .collapsible-header {
+  position: relative;
+}
+
+/* ul#slide-menu .collapsible-header:after {
+  font-family: "Material Icons";
+  content: "keyboard_arrow_right";
+  color: #9e9e9e;
+  font-size: 18px;
+  transition: all;
+  transition-duration: 250ms;
+  position: absolute;
+  right: 15px;
+} */
+ul#slide-menu .collapsible-body {
+  border: 0;
+  background-color: #fff;
+  transition: max-height 0.32s ease-in-out;
+  max-height: 0;
+  overflow-y: hidden;
+}
+
+ul#slide-menu .collapsible-body li {
+  line-height: 40px;
+}
+
+ul#slide-menu .collapsible-body li i {
+  font-size: 16px;
+}
+
+ul#slide-menu .collapsible-body a {
+  padding-left: 30px;
+}
+
+ul#slide-menu .collapsible-body .collapsible-body a {
+  padding-left: 45px;
+}
+
+ul#slide-menu .collapsible-body .collapsible-body .collapsible-body a {
+  padding-left: 60px;
+}
+
+ul#slide-menu .collapsible-body .collapsible-body .collapsible-body .collapsible-body a {
+  padding-left: 75px;
+}
+
+ul#slide-menu .collapsible-body .collapsible-body .collapsible-body .collapsible-body .collapsible-body a {
+  padding-left: 90px;
+}
+
+ul#slide-menu a.collapsible-header:hover {
+  background-color: inherit;
+}
+
+ul#slide-menu li.selected>.collapsible-header:after {
+  transform: rotate(90deg);
+}
+
+ul#slide-menu li.selected>.collapsible-body {
+  transition: max-height 0.64s ease-in-out;
+  max-height: 999px;
+}
