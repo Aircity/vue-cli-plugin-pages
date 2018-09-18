@@ -11,7 +11,7 @@ module.exports = api => {
   if (!fs.existsSync(configPath)) {
     try {
       let template = fs.readFileSync(path.join(__dirname, "./lib/vue.config.js"));
-      fs.writeFile(configPath, template, function(err) {
+      fs.writeFile(configPath, template, function (err) {
         if (err) {
           return console.log(err);
         }
