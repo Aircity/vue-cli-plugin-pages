@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": "aircity <aircity@drrr.us>",
   "scripts": {
-    "test": "echo \"NO TEST\""
+    "test": "node index.js"
   },
   "dependencies": {
     "globby": "^8.0.0",
