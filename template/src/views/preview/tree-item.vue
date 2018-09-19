@@ -1,23 +1,22 @@
 <template>
-  <li :class="{'selected': item.expanded}">
-    <a href="javascript:void(0);"
-       class="collapsible-header"
-       v-if="item.children.length>0"
-       @click="toggle(item)">
-      <!-- <i class="material-icons">folder</i> -->
+  <li class="drawer-list__item">
+    <a v-if="item.type==='directory'"
+       class="drawer-link mdc-ripple-upgraded"
+       href="javascript:;">
       {{item.name}}
     </a>
-    <a :href="item.path"
-       v-else>
-      <!-- <i class="material-icons">dashboard</i> -->
+    <a v-else
+       class="drawer-link mdc-ripple-upgraded"
+       href="javascript:;"
+       @click="handleClick(item.path)">
       {{item.name}}
     </a>
-    <ul class="collapsible-body"
-        v-if="item.children.length>0">
+    <ul class="drawer-list drawer-list--sublevel"
+        v-if="item.type==='directory'">
       <sidebar-item :item="item"
+                    @triggle-click="handleClick"
                     v-for="(item, index) in item.children"
-                    :key="index"
-                    @triggle-click="handleClick"></sidebar-item>
+                    :key="index"></sidebar-item>
     </ul>
   </li>
 </template>
@@ -26,17 +25,17 @@
 export default {
   name: "sidebar-item",
   props: {
-    item: null,
+    item: {}
   },
   methods: {
     handleClick(link) {
-      this.$emit("triggle-click", link)
+      this.$emit("triggle-click", link);
     },
     toggle(item) {
-      let expanded = !item.expanded
-      this.$set(item, "expanded", expanded)
-      this.$forceUpdate()
-    },
-  },
-}
+      let expanded = !item.expanded;
+      this.$set(item, "expanded", expanded);
+      this.$forceUpdate();
+    }
+  }
+};
 </script>
