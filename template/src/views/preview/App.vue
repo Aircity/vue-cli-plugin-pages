@@ -1,5 +1,4 @@
 <template>
-
   <div class="mdc-body">
     <aside class="mdc-drawer">
       <div class="mdc-drawer__header">
@@ -11,54 +10,55 @@
       <div class="mdc-drawer__content">
         <nav class="mdc-list-group">
           <ul class="drawer-list">
-            <tree-item :item="item"
-                       v-for="(item, index) in getTree"
-                       :key="index"
-                       @triggle-click="load"></tree-item>
+            <tree-item
+              v-for="(item, index) in getTree"
+              :item="item"
+              :key="index"
+              @triggle-click="load"/>
           </ul>
         </nav>
-
       </div>
     </aside>
-
     <div class="mdc-drawer-app-content">
-      <main class="main-content"
-            id="main-content">
-        <iframe class="iframe"
-                title="iframe"
-                src="/index.html"
-                frameborder="0"
-                ref="iframe"></iframe>
+      <main
+        id="main-content"
+        class="main-content">
+        <iframe
+          ref="iframe"
+          class="iframe"
+          title="iframe"
+          src="/index.html"
+          frameborder="0"/>
       </main>
     </div>
   </div>
 </template>
 
 <script>
-import "./drawer/mdc.drawer.css";
-import "./app.css";
-import { children as Tree } from "@logs/tree";
-import Item from "./tree-item.vue";
+import './drawer/mdc.drawer.css'
+import './app.css'
+import { children as Tree } from '@logs/tree'
+import Item from './tree-item.vue'
 
 export default {
-  name: "preview",
+  name: 'Preview',
   components: {
-    "tree-item": Item
+    'tree-item': Item
   },
   data: () => ({
     Tree: Tree
   }),
   computed: {
-    getTree() {
-      return this.Tree.filter(item => item.path !== "preview.html");
+    getTree () {
+      return this.Tree.filter(item => item.path !== 'preview.html')
     }
   },
   methods: {
-    load(filename) {
-      document.getElementsByTagName("iframe")[0].src = `/${filename}`;
+    load (filename) {
+      document.getElementsByTagName('iframe')[0].src = `/${filename}`
     }
   }
-};
+}
 </script>
 
 <style>
