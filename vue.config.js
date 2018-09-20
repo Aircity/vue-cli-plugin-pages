@@ -1,4 +1,4 @@
-const { logger } = require('vue-cli-plugin-pages')
+const logger = require('vue-cli-plugin-pages/logger')
 const pages = logger.start()
 
 module.exports = {
