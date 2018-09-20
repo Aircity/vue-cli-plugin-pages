@@ -4,14 +4,32 @@
       v-if="item.type==='directory'"
       class="drawer-link mdc-ripple-upgraded"
       href="javascript:;">
-      {{ item.name }}
+      <svg
+        focusable="false"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        aria-hidden="true">
+        <path d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2zm-4 10H4V5h14v14zM6 13h5v4H6zm6-6h4v3h-4zM6 7h5v5H6zm6 4h4v6h-4z"/>
+      </svg>
+      <span>{{ item.name }}</span>
     </a>
     <a
       v-else
       class="drawer-link mdc-ripple-upgraded"
       href="javascript:;"
       @click="handleClick(item.path)">
-      {{ item.name }}
+      <svg
+        focusable="false"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        aria-hidden="true">
+        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+      </svg>
+      <span>
+        {{ item.name }}
+      </span>
     </a>
     <ul
       v-if="item.type==='directory'"
@@ -69,11 +87,8 @@ export default {
 
 .drawer-list__item {
   position: relative;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -ms-flex-pack: center;
   justify-content: center;
   min-height: 42px;
 }
@@ -116,6 +131,8 @@ export default {
   letter-spacing: normal;
   overflow: hidden;
   color: #616161;
+  display: flex;
+  align-items: center;
 }
 
 .drawer-link,
@@ -227,5 +244,9 @@ export default {
 
 .drawer-list__item .drawer-list__item .drawer-list .drawer-link {
   padding-left: 72px;
+}
+
+.drawer-link svg {
+  margin-right: 16px;
 }
 </style>
