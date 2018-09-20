@@ -3,8 +3,13 @@
     <aside class="mdc-drawer">
       <div class="mdc-drawer__header">
         <h3 class="mdc-drawer__title">Vue-cli-plugin-pages</h3>
-        <h6 class="mdc-drawer__subtitle">
-          <a href="https://github.com/Aircity/vue-cli-plugin-pages">Github</a>
+        <h6 class="css-filter-box">
+          <input
+            v-model="value"
+            type="text"
+            placeholder="Filter"
+            name="filter-text"
+            class="css-filter">
         </h6>
       </div>
       <div class="mdc-drawer__content">
@@ -14,7 +19,7 @@
               v-for="(item, index) in getTree"
               :item="item"
               :key="index"
-              @triggle-click="load"/>
+              @triggle-click="load" />
           </ul>
         </nav>
       </div>
@@ -28,17 +33,16 @@
           class="iframe"
           title="iframe"
           src="/index.html"
-          frameborder="0"/>
+          frameborder="0" />
       </main>
     </div>
   </div>
 </template>
 
 <script>
-import './drawer/mdc.drawer.css'
-import './app.css'
 import { children as Tree } from '@logs/tree'
 import Item from './tree-item.vue'
+import './mdc.drawer.css'
 
 export default {
   name: 'Preview',
@@ -46,11 +50,14 @@ export default {
     'tree-item': Item
   },
   data: () => ({
-    Tree: Tree
+    Tree: Tree,
+    value: ''
   }),
   computed: {
     getTree () {
-      return this.Tree.filter(item => item.path !== 'preview.html')
+      return this.Tree.filter(item => item.path !== 'preview.html').filter(
+        item => item.name.includes(this.value)
+      )
     }
   },
   methods: {
@@ -107,10 +114,6 @@ ul {
   min-height: 100%;
 }
 
-.mdc-drawer__title {
-  margin-bottom: 0;
-}
-
 .mdc-drawer__header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   padding-bottom: 16px;
@@ -118,5 +121,27 @@ ul {
 
 .drawer-list {
   text-align: left;
+}
+.css-filter-box {
+  border: 1px solid rgb(236, 236, 236);
+  border-radius: 2px;
+  position: relative;
+  margin-bottom: 0;
+}
+.css-filter {
+  font-size: 12px;
+  color: rgb(130, 130, 130);
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  height: 26px;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-width: 0px;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  outline: none;
+  border-radius: 2px;
 }
 </style>
