@@ -96,7 +96,7 @@ function directoryTree (path, options, onEachFile) {
       !item.children[0].merged
     ) {
       Object.assign(item, item.children[0])
-      item.children = []
+      item.children = null
       item.merged = true
     }
     if (onEachFile && !item.merged) {
