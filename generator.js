@@ -18,5 +18,20 @@ module.exports = api => {
     } catch (e) {
       throw e
     }
+  } else {
+    api.injectImports(configPath, `const logger = require('vue-cli-plugin-pages/logger')`)
   }
+
+  api.onCreateComplete(() => {
+    // Linting the generated files
+    if (api.hasPlugin('eslint')) {
+      // Lint generated/modified files
+      try {
+        const lint = require('@vue/cli-plugin-eslint/lint')
+        lint({ silent: true }, api)
+      } catch (e) {
+        // No ESLint vue-cli plugin
+      }
+    }
+  })
 }
