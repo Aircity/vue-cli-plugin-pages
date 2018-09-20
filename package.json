@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-pages",
-  "version": "0.8.0",
+  "version": "0.8.2",
   "main": "index.js",
   "license": "MIT",
   "author": "aircity <aircity@drrr.us>",
