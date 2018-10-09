@@ -13,7 +13,7 @@ This is a vue-cli 3.x plugin to build multi-page application.
 ## ✨ Features
 
 * Generate multi-page [pages](https://cli.vuejs.org/config/#pages) config.(Get the entries and filenames through `src/views/**/app.js`)
-``
+```
 {
   "index": {
     "entry": "src/views/index/app.js",
@@ -36,7 +36,7 @@ This is a vue-cli 3.x plugin to build multi-page application.
     "template": "public/index.html"
   }
 }
-``
+```
 
 * Generate multi-page location to `logs/route.json`.
 ```
