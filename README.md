@@ -38,7 +38,7 @@ This is a vue-cli 3.x plugin to build multi-page application.
 }
 ```
 
-* Generate multi-page location to `logs/route.json`.
+* Generate multi-page location to `logs/location.json`.
 ```
 {
   "route": [

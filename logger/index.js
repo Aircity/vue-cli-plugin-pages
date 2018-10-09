@@ -66,7 +66,7 @@ module.exports = {
 
   log (viewRoot, paths, chunks) {
     // generate view route
-    const routeFile = 'logs/route.json'
+    const routeFile = 'logs/location.json'
     const routesPath = paths.map((path, index) => {
       const dirpath = PATH.dirname(path)
       let item = {

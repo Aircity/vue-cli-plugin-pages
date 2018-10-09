@@ -37,7 +37,7 @@
 }
 ```
 
-* 将页面位置生成到`logs/route.json`
+* 将页面位置生成到`logs/location.json`
 ```
 {
   "route": [
