@@ -1,8 +1,16 @@
 # vue-cli-plugin-pages
 
+English | [简体中文](./README-zh_CN.md)
+
 This is a vue-cli 3.x plugin to build multi-page application.
 
-## Features
+## Table of contents
+
+* [Features](#Features)
+* [Usage](#Usage)
+
+
+## ✨ Features
 
 * Generate multi-page [pages](https://cli.vuejs.org/config/#pages) config.
 * Generate multi-page location to `logs/route.json`.
@@ -83,7 +91,7 @@ This is a vue-cli 3.x plugin to build multi-page application.
 
 ```
 
-## Usage
+## 🔨 Usage
 
 :warning: Make sure you have vue-cli 3.x.x:
 
