@@ -4,10 +4,10 @@ English | [简体中文](./README-zh_CN.md)
 
 This is a vue-cli 3.x plugin to build multi-page application.
 
-## Table of contents
+## 🔗 Table of contents
 
-* [Features](#Features)
-* [Usage](#Usage)
+* [Features](#-features)
+* [Usage](#-usage)
 
 
 ## ✨ Features
