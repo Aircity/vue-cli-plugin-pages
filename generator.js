@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-module.exports = api => {
+module.exports = (api, opts) => {
   api.render('./template')
 
   const configPath =
@@ -25,12 +25,17 @@ module.exports = api => {
   }
 
   api.onCreateComplete(() => {
+    if (opts.generate === 'whole') {
+      api.render('./example')
+    }
     // Linting the generated files
     if (api.hasPlugin('eslint')) {
       // Lint generated/modified files
       try {
         const lint = require('@vue/cli-plugin-eslint/lint')
-        lint({ silent: true }, api)
+        lint({
+          silent: true
+        }, api)
       } catch (e) {
         // No ESLint vue-cli plugin
       }

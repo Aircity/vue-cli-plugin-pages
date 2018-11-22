@@ -5,6 +5,6 @@ module.exports = {
   pages: pages,
   devServer: {
     open: true,
-    openPage: 'preview.html'
+    index: 'preview.html'
   }
 }
