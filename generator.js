@@ -3,7 +3,9 @@ const path = require('path')
 
 module.exports = (api, opts) => {
   api.render('./template')
-
+  if (opts.generate === 'whole') {
+    api.render('./example')
+  }
   const configPath =
     process.env.VUE_CLI_SERVICE_CONFIG_PATH || api.resolve('vue.config.js')
 
@@ -26,9 +28,7 @@ module.exports = (api, opts) => {
   }
 
   api.onCreateComplete(() => {
-    if (opts.generate === 'whole') {
-      api.render('./example')
-    }
+
     // Linting the generated files
     if (api.hasPlugin('eslint')) {
       // Lint generated/modified files
