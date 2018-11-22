@@ -19,6 +19,7 @@ module.exports = (api, opts) => {
       throw e
     }
   } else {
+    //   api.injectImports(configPath, `const logger = require('vue-cli-plugin-pages/logger')`)
     console.log(`You can easy to get pages opition:`)
     console.log(`const logger = require('vue-cli-plugin-pages/logger')`)
     console.log(`const pages = logger.start()`)
