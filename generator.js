@@ -28,7 +28,6 @@ module.exports = (api, opts) => {
   }
 
   api.onCreateComplete(() => {
-
     // Linting the generated files
     if (api.hasPlugin('eslint')) {
       // Lint generated/modified files
