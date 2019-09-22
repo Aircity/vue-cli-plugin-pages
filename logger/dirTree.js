@@ -80,7 +80,7 @@ function directoryTree (path, options, onEachFile) {
       onEachFile(item, PATH)
     }
   } else if (stats.isDirectory()) {
-    let dirData = safeReadDirSync(path)
+    const dirData = safeReadDirSync(path)
     if (dirData === null) return null
 
     item.children = dirData

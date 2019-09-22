@@ -7,16 +7,25 @@ const FS = require('fs')
 const dirTree = require('./dirTree.js')
 
 const mergeFileConfig = (item, dirpath) => {
-  let configFile = PATH.join(dirpath, 'file.json')
+  const configFile = PATH.join(dirpath, 'file.json')
   if (FS.existsSync(configFile)) {
     try {
-      let infoJson = JSON.parse(FS.readFileSync(configFile).toString())
+      const infoJson = JSON.parse(FS.readFileSync(configFile).toString())
       if (infoJson) {
         Object.assign(item, infoJson)
       }
     } catch (err) {
       console.log(err)
     }
+  }
+}
+
+const getTemplatePath = (dirpath) => {
+  const templatePath = PATH.join(dirpath, 'index.html')
+  if (FS.existsSync(templatePath)) {
+    return templatePath
+  } else {
+    return 'public/index.html'
   }
 }
 
@@ -45,13 +54,14 @@ module.exports = {
       htmlConfig[chunk] = {
         entry: path,
         filename: relative(viewRoot, dirpath) + '.html',
-        template: 'public/index.html'
+        // template: 'public/index.html'
+        template: getTemplatePath(dirpath)
       }
     })
 
     htmlConfig = JSON.stringify(htmlConfig) !== '{}' ? htmlConfig : null
     if (htmlConfig) {
-      let htmlConfigStr = prettier.format(JSON.stringify(htmlConfig), {
+      const htmlConfigStr = prettier.format(JSON.stringify(htmlConfig), {
         parser: 'json'
       })
       FS.writeFile(htmlFile, htmlConfigStr, function (err) {
@@ -69,7 +79,7 @@ module.exports = {
     const routeFile = 'logs/location.json'
     const routesPath = paths.map((path, index) => {
       const dirpath = PATH.dirname(path)
-      let item = {
+      const item = {
         name: chunks[index],
         chunk: chunks[index],
         location: relative(viewRoot, dirpath) + '.html'
@@ -78,7 +88,7 @@ module.exports = {
       return item
     })
     if (routeFile) {
-      let routesPathStr = prettier.format(JSON.stringify({
+      const routesPathStr = prettier.format(JSON.stringify({
         route: routesPath
       }), {
         parser: 'json'
@@ -109,7 +119,7 @@ module.exports = {
     )
     const treeFile = 'logs/tree.json'
     if (logsTree) {
-      let logsTreeStr = prettier.format(JSON.stringify(logsTree), {
+      const logsTreeStr = prettier.format(JSON.stringify(logsTree), {
         parser: 'json'
       })
       FS.writeFile(treeFile, logsTreeStr, function (err) {
