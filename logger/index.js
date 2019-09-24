@@ -21,8 +21,11 @@ const mergeFileConfig = (item, dirpath) => {
 }
 
 const getTemplatePath = (dirpath) => {
+  const customTemplatePath = PATH.join(dirpath, 'index.ejs')
   const templatePath = PATH.join(dirpath, 'index.html')
-  if (FS.existsSync(templatePath)) {
+  if (FS.existsSync(customTemplatePath)) {
+    return customTemplatePath
+  } else if (FS.existsSync(templatePath)) {
     return templatePath
   } else {
     return 'public/index.html'
