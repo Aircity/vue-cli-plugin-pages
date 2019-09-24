@@ -47,18 +47,19 @@ module.exports = {
     })
     makeDir.sync('logs')
     del.sync('logs/*.json')
-
     // generate html-webpack-plugin options
     const htmlFile = 'logs/pages.json'
     let htmlConfig = {}
     paths.forEach((path, index) => {
       const chunk = chunks[index]
       const dirpath = PATH.dirname(path)
+      const htmlTpl = getTemplatePath(dirpath)      
       htmlConfig[chunk] = {
         entry: path,
         filename: relative(viewRoot, dirpath) + '.html',
         // template: 'public/index.html'
-        template: getTemplatePath(dirpath)
+        template: htmlTpl,
+        inject: htmlTpl.endsWith('.html')
       }
     })
 
